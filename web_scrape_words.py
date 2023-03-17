@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import os
+import shutil
 import requests
 from bs4 import BeautifulSoup
 
@@ -8,6 +10,13 @@ from bs4 import BeautifulSoup
 words_page_names = ["astronomy", "positivewords", "languages", "metals", "usstates", "vegetables"]
 synonym_words_page_names = ["big", "happy", "said"]
 words_dict = {}
+
+# make directory to store words in files if does not exist already
+if not os.path.isdir('words/') :
+    os.mkdir('words/')
+else:
+    shutil.rmtree('words/')
+    os.mkdir('words/')
 
 for page_name in words_page_names + synonym_words_page_names :
     # get URL request
@@ -23,5 +32,9 @@ for page_name in words_page_names + synonym_words_page_names :
         words_list.append(sp.text.lower())              #lower text for game purposes
 
     words_dict[page_name] = words_list
-    print(words_list)
+
+    # write all words with same theme in separate file
+    with open('words/' + page_name + '.txt', "w") as file:
+        for word in words_list:
+            file.write(word + '\n')
 
