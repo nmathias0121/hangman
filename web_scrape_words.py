@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import os
 import shutil
+import time
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,6 +17,7 @@ if not os.path.isdir('words/') :
     os.mkdir('words/')
 else:
     shutil.rmtree('words/')
+    time.sleep(3)           #time to delete files in dir & the dir itsellf
     os.mkdir('words/')
 
 for page_name in words_page_names + synonym_words_page_names :
