@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 # list of pages containing words with different themes
 # link : https://www.enchantedlearning.com/wordlist/
 
-def get_words() :
+def get_words_create_files() :
     '''
     web scraping to get words & store in separate files based on theme
 
