@@ -1,4 +1,4 @@
-
+import random
 
 def select_theme(dict) :
     # get themes from dict
@@ -15,3 +15,7 @@ def select_theme(dict) :
 
     # return chosen theme (i started from 1)
     return list(themes)[choice - 1]
+
+def random_word(dict, theme) :
+    # shuffle list & return random word
+    return random.choice(random.shuffle(dict[theme]))

@@ -15,6 +15,8 @@ def main():
     # user selects a theme
     theme = hangman.select_theme(words)
 
+    chosen_word = hangman.random_word(words, theme)
+
 
 
 if __name__ == "__main__":
