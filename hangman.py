@@ -24,6 +24,16 @@ def random_word(dict, theme) :
     # return random word
     return random.choice(list(dict[theme]))
 
+def indices_of(str, ch) :
+    lst_of_indices = []
+    i = 0
+    for letter in str:
+        if letter == ch :
+            lst_of_indices.append(i)
+        i+=1
+    
+    return lst_of_indices
+
 def play_game(dict, theme) :
     game_word = random_word(dict, theme)
     word_to_solve = '_' * len(game_word)
@@ -35,11 +45,16 @@ def play_game(dict, theme) :
 
     total_num_guesses = len(game_word) * 2
     for guess_num in range(total_num_guesses) :
+        
         print(word_to_solve)
         guess = input("Guess a character : ")
+
         if guess in game_word:
-            # write function - get indices for character in string
-            # replace characters in word to solve
-            pass 
+            # get occurences of guess in string
+            indices = indices_of(game_word, guess)
+            # replace character in word to solve
+            for index in indices :
+                word_to_solve[index] = guess
+            
 
     print(game_word)
