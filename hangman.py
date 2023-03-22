@@ -11,11 +11,18 @@ def select_theme(dict) :
         print(i, '.', theme)
         i += 1
 
-    choice = int(input())
+    choice = int(input('Enter the number to select the theme : '))
 
     # return chosen theme (i started from 1)
     return list(themes)[choice - 1]
 
 def random_word(dict, theme) :
-    # shuffle list & return random word
-    return random.choice(random.shuffle(dict[theme]))
+    # shuffle list
+    random.shuffle(list(dict[theme]))
+
+    # return random word
+    return random.choice(list(dict[theme]))
+
+def play_game(dict, theme) :
+    choose_word = random_word(dict, theme)
+    print(choose_word)

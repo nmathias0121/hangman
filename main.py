@@ -15,7 +15,7 @@ def main():
     # user selects a theme
     theme = hangman.select_theme(words)
 
-    chosen_word = hangman.random_word(words, theme)
+    hangman.play_game(words, theme)
 
 
 
