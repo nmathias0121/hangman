@@ -1,9 +1,10 @@
 import random
 import time
 
-def select_theme(dict) :
+# let user input theme for game
+def select_theme(words : dict) -> str:
     # get themes from dict
-    themes = dict.keys()
+    themes = words.keys()
 
     # print options
     print('Select a theme :')
@@ -17,25 +18,28 @@ def select_theme(dict) :
     # return chosen theme (i started from 1)
     return list(themes)[choice - 1]
 
-def random_word(dict, theme) :
+# choose random word from given theme
+def random_word(words : dict, theme : str) -> str :
     # shuffle list
-    random.shuffle(list(dict[theme]))
+    random.shuffle(list(words[theme]))
 
     # return random word
-    return random.choice(list(dict[theme]))
+    return random.choice(list(words[theme]))
 
-def indices_of(str, ch) :
+# get all indices of string that match the character
+def indices_of(word : str, ch : str) -> list:
     lst_of_indices = []
     i = 0
-    for letter in str:
+    for letter in word:
         if letter == ch :
             lst_of_indices.append(i)
         i+=1
     
     return lst_of_indices
 
-def play_game(dict, theme) :
-    game_word = random_word(dict, theme)
+# game logic
+def play_game(words : dict, theme : str) :
+    game_word = random_word(words, theme)
     word_to_solve = '_' * len(game_word)
 
     # write function - print rules
