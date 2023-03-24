@@ -49,6 +49,10 @@ def play_game(words : dict, theme : str) :
 
     total_num_guesses = len(game_word) * 2
     for guess_num in range(total_num_guesses) :
+
+        if word_to_solve == game_word:
+            print('You are a winner!!')
+            return
         
         print(word_to_solve)
         guess = input("Guess a character : ")
@@ -56,9 +60,14 @@ def play_game(words : dict, theme : str) :
         if guess in game_word:
             # get occurences of guess in string
             indices = indices_of(game_word, guess)
-            # replace character in word to solve
-            for index in indices :
-                word_to_solve[index] = guess
-            
 
-    print(game_word)
+            # replace character in word to solve
+            # strings are immutable
+            # convert to list, modify char at index & convert back to string
+            lst = list(word_to_solve)
+            for index in indices :
+                lst[index] = guess
+            word_to_solve = "".join(lst)
+            
+    print('You could have won :(')
+    print('The word was ', game_word)
