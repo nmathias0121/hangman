@@ -51,6 +51,7 @@ def play_game(words : dict, theme : str) :
     for guess_num in range(total_num_guesses) :
 
         if word_to_solve == game_word:
+            print(word_to_solve)
             print('You are a winner!!')
             return
         
