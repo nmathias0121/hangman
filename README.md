@@ -6,7 +6,7 @@
 - hangman.py : let user select theme, select a random word, play game
 - main.py
 
-**Game Instructions**
+**Game Instructions** <br />
 &emsp;&emsp;python3 main.py <br />
 &emsp;Wait for game to load <br />
 &emsp;Select a number to choose theme <br />
@@ -14,5 +14,5 @@
 &emsp;enter Y to play again, n to quit <br />
 
 
-**Install Built-In Modules**
+**Install Built-In Modules** <br />
 &emsp;&emsp;pip install module_name <br />
