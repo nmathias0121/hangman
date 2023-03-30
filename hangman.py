@@ -3,6 +3,11 @@ import time
 
 # let user input theme for game
 def select_theme(words : dict) -> str:
+    '''
+    print theme options & prompt user to select a theme
+    input : dictionary
+    output : string containing name of theme
+    '''
     # get themes from dict
     themes = words.keys()
 
@@ -18,16 +23,28 @@ def select_theme(words : dict) -> str:
     # return chosen theme (i started from 1)
     return list(themes)[choice - 1]
 
+
 # choose random word from given theme
 def random_word(words : dict, theme : str) -> str :
+    '''
+    choose a random word from a given theme
+    input : dictionary, string containing name of theme
+    output : string containing game word
+    '''
     # shuffle list
     random.shuffle(list(words[theme]))
 
     # return random word
     return random.choice(list(words[theme]))
 
+
 # get all indices of string that match the character
 def indices_of(word : str, ch : str) -> list:
+    '''
+    get all indices of character in string
+    input : string containing word, character to search in string
+    output : list of indices
+    '''
     lst_of_indices = []
     i = 0
     for letter in word:
@@ -39,6 +56,10 @@ def indices_of(word : str, ch : str) -> list:
 
 # game logic
 def play_game(words : dict, theme : str) :
+    '''
+    function containing game logic
+    input : dictionary, string containing theme
+    '''
     game_word = random_word(words, theme)
     word_to_solve = '_' * len(game_word)
 
